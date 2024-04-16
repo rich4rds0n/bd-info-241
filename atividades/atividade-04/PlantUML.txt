@@ -1,0 +1,28 @@
+@startuml
+
+entity MesoRegiao {
+  + id (PK)
+  --
+  nome String
+}
+
+entity MicroRegioes {
+  + id (PK)
+  --
+  nome String
+  # mesoregiao_id (FK)
+}
+
+entity Municipios {
+  + id (PK)
+  --
+  nome String
+  latitude Float
+  longitude Float
+  # microregioes_id (FK)
+}
+
+MesoRegiao -right-{ MicroRegioes
+MicroRegioes -right-{ Municipios
+
+@enduml
